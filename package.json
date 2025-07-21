@@ -14,10 +14,9 @@
   },
   "dependencies": {
     "@nuxt/eslint": "^1.6.0",
-
     "@nuxt/icon": "^1.15.0",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@tailwindcss/vite": "^4.1.11",
-
     "eslint": "^9.31.0",
     "nuxt": "^4.0.0",
     "tailwindcss": "^4.1.11",
@@ -26,10 +25,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.17.0",
-
     "@iconify-json/tabler": "^1.2.19",
     "daisyui": "^5.0.46",
-
     "eslint-plugin-format": "^1.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2"
