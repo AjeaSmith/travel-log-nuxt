@@ -10,19 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-=======
     "@nuxt/eslint": "^1.6.0",
     "@nuxt/icon": "^1.15.0",
     "@tailwindcss/vite": "^4.1.11",
     "eslint": "^9.31.0",
->>>>>>> Stashed changes
     "nuxt": "^4.0.0",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
-<<<<<<< Updated upstream
-=======
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.17.0",
@@ -34,6 +29,5 @@
   },
   "lint-staged": {
     "*": "npm run lint"
->>>>>>> Stashed changes
   }
 }
