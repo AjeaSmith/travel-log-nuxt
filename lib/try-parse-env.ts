@@ -1,3 +1,5 @@
+// For nicer error messages when missing env's
+
 /* eslint-disable node/no-process-env */
 import type { ZodObject, ZodRawShape } from "zod";
 
