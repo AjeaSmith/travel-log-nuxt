@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: Build
     env:
-      NODE_ENV: development
-      TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_CONNECTION_URL: ${{ secrets.TURSO_CONNECTION_URL }}
       TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
