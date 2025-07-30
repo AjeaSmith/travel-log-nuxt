@@ -1,5 +1,7 @@
 <script setup lang="ts">
+// const authStore = useAuthStore();
 
+// await authStore.getUserSession();
 </script>
 
 <template>

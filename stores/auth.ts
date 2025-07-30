@@ -6,6 +6,12 @@ const authClient = createAuthClient();
 
 export const useAuthStore = defineStore("auth", () => {
   const isloading = ref(false);
+  const session = ref<Awaited<ReturnType<typeof authClient.useSession>> | null>(null);
+
+  async function getUserSession() {
+    const data = await authClient.useSession(useFetch);
+    session.value = data;
+  }
 
   async function signWithGithub() {
     isloading.value = true;
@@ -13,5 +19,5 @@ export const useAuthStore = defineStore("auth", () => {
     isloading.value = false;
   }
 
-  return { isloading, signWithGithub };
+  return { isloading, signWithGithub, getUserSession };
 });
