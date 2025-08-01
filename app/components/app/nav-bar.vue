@@ -10,8 +10,8 @@ import AuthButton from "./auth-button.vue";
       </NuxtLink>
     </div>
     <div class="navbar-end gap-4">
-      <AuthButton />
       <AppThemeToggle />
+      <AuthButton />
     </div>
   </header>
 </template>
