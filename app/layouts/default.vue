@@ -1,7 +1,9 @@
 <script setup lang="ts">
-// const authStore = useAuthStore();
+import { useAuthStore } from "~~/stores/auth";
 
-// await authStore.getUserSession();
+const authStore = useAuthStore();
+
+await authStore.init();
 </script>
 
 <template>
