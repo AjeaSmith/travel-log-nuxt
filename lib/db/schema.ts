@@ -1,4 +1,5 @@
 import { int, integer, real, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { createInsertSchema } from "drizzle-zod";
 
 export const user = sqliteTable("user", {
   id: int().primaryKey({ autoIncrement: true }),
@@ -93,4 +94,18 @@ export const locationLogImage = sqliteTable("locationLogImage", {
   userId: integer()
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
+});
+
+// using drizzle zod schema to validate incoming data
+export const InsertLocation = createInsertSchema(location, {
+  name: field => field.min(1).max(100),
+  description: field => field.max(1000),
+  lat: field => field.min(-90).max(90),
+  long: field => field.min(-180).max(180),
+}).omit({
+  id: true,
+  slug: true,
+  userId: true,
+  createdAt: true,
+  updatedAt: true,
 });
