@@ -2,14 +2,14 @@
 import type { FetchError } from "ofetch";
 
 import { toTypedSchema } from "@vee-validate/zod";
-import { InsertLocation } from "~~/lib/db/schema";
+import { InsertLocation } from "~~/lib/db/schema/location";
 
 import FormField from "~/components/form-field.vue";
 import SubmitError from "~/components/submit-error.vue";
 
 const { $csrfFetch } = useNuxtApp();
 
-const submitError = ref("");
+const submitError = ref<string | undefined>("");
 const submitted = ref(false);
 const loading = ref(false);
 
@@ -32,10 +32,9 @@ onBeforeRouteLeave(() => {
 });
 const onSubmit = handleSubmit(async (values) => {
   // sumbit data to backend (API)
-
   try {
     loading.value = true;
-    const _ = await $csrfFetch("/api/locations", {
+    await $csrfFetch("/api/locations", {
       method: "post",
       body: values,
     });
@@ -44,14 +43,11 @@ const onSubmit = handleSubmit(async (values) => {
   }
   catch (e) {
     const error = e as FetchError;
-    if (error.data) {
-      setErrors(error.data);
+    if (error.data?.data) {
+      setErrors(error.data?.data);
     }
-    submitError.value = error.statusMessage || "Unknown error occured";
-  }
-  finally {
+    submitError.value = error.statusMessage;
     loading.value = false;
-    submitError.value = "";
   }
 });
 </script>
